@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Certificate Generator</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- We need this library to convert the certificate to an image for download -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+</head>
+<body>
+
+    <h1>Certificate Generator</h1>
+
+    <div class="main-container">
+        <!-- Left Panel: Controls -->
+        <div class="control-panel">
+            <h2>Customize Your Certificate</h2>
+            <form id="certificate-form">
+                <label for="recipient-name">Recipient Name</label>
+                <input type="text" id="recipient-name" placeholder="e.g., Jane Doe" value="John Smith">
+
+                <label for="course-name">Course/Event Name</label>
+                <input type="text" id="course-name" placeholder="e.g., Introduction to Coding" value="Web Development Basics">
+
+                <label for="completion-date">Completion Date</label>
+                <input type="date" id="completion-date" value="2023-10-27">
+
+                <label for="issuer-name">Issuer Name</label>
+                <input type="text" id="issuer-name" placeholder="e.g., Coding Academy" value="The Awesome Company">
+
+                <!-- Customization Options -->
+                <h3>Style Options</h3>
+                
+                <label for="font-family">Font Style</label>
+                <select id="font-family">
+                    <option value="'Times New Roman', serif">Classic (Times New Roman)</option>
+                    <option value="'Arial', sans-serif">Modern (Arial)</option>
+                    <option value="'Georgia', serif">Elegant (Georgia)</option>
+                    <option value="'Courier New', monospace">Technical (Courier New)</option>
+                </select>
+
+                <label for="font-color">Text Color</label>
+                <input type="color" id="font-color" value="#333333">
+
+                <label for="border-color">Border Color</label>
+                <input type="color" id="border-color" value="#c9a961">
+
+            </form>
+            <button id="download-btn">Download Certificate as Image</button>
+        </div>
+
+        <!-- Right Panel: Certificate Preview -->
+        <div class="preview-panel">
+            <h2>Live Preview</h2>
+            <div id="certificate-preview">
+                <div class="certificate-inner">
+                    <h1 class="cert-title">Certificate of Completion</h1>
+                    <p class="cert-subtitle">This is to certify that</p>
+                    <p class="cert-recipient" id="cert-recipient-name">John Smith</p>
+                    <p class="cert-text">has successfully completed the course</p>
+                    <p class="cert-course" id="cert-course-name">Web Development Basics</p>
+                    <p class="cert-date-completed" id="cert-date">on October 27, 2023</p>
+                    <div class="cert-signatures">
+                        <div class="signature-box">
+                            <p id="cert-issuer-name">The Awesome Company</p>
+                            <hr>
+                            <p>Authorized Signature</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
